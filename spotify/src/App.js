@@ -13,14 +13,15 @@ function App() {
         <header>
           <h1>Spotify</h1>
         </header>
-        <switch>
+
+        <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/playlist" component={PlayList} />
+          <Route exact path="/song" component={Song} />
           <Route exact path="/artist" component={Artist} />
           <Route exact path="/album" component={Album} />
-          <Route exact path="/song" component={Song} />
+          <Route exact path="/playlist" component={PlayList} />
           <Route component={NotFound} />
-        </switch>
+        </Switch>
       </BrowserRouter>
     </div>
   );
