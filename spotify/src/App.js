@@ -20,7 +20,7 @@ function App() {
           <Route exact path="/artist" component={Artist} />
           <Route exact path="/album" component={Album} />
           <Route exact path="/playlist" component={PlayList} />
-          <Route component={NotFound} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </BrowserRouter>
     </div>

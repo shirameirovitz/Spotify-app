@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from "react";
 import albumsData from "../JsonFiles/albums.json";
 import artistsData from "../JsonFiles/artists.json";
-import playlists from "../JsonFiles/playlists.json";
+import playlistsData from "../JsonFiles/playlists.json";
+import songsData from "../JsonFiles/songs.json";
 import PlayList from "./PlayList.js";
 import Artist from "./Artist.js";
 import Song from "./Song.js";
