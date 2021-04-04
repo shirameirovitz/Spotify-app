@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Home from "./components/Home.js";
+import PlayList from "./components/PlayList.js";
+import Artist from "./components/Artist.js";
+import Song from "./components/Song.js";
+import Album from "./components/Album.js";
+import NotFound from "./components/NotFound.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <header>
+          <h1>Spotify</h1>
+        </header>
+        <switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/playlist" component={PlayList} />
+          <Route exact path="/artist" component={Artist} />
+          <Route exact path="/album" component={Album} />
+          <Route exact path="/song" component={Song} />
+          <Route component={NotFound} />
+        </switch>
+      </BrowserRouter>
     </div>
   );
 }
