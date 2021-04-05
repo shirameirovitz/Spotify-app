@@ -1,34 +1,42 @@
 import { React, useEffect, useState } from "react";
-import albumsData from "../JsonFiles/albums.json";
-import artistsData from "../JsonFiles/artists.json";
-import playlistsData from "../JsonFiles/playlists.json";
-import songsData from "../JsonFiles/songs.json";
-import PlayList from "./PlayList.js";
-import Artist from "./Artist.js";
-import Song from "./Song.js";
-import Album from "./Album.js";
+
+import albums from "../JsonFiles/albums.json";
+import artists from "../JsonFiles/artists.json";
+import playlists from "../JsonFiles/playlists.json";
+import songs from "../JsonFiles/songs.json";
+import Items from "./Items";
+
+// import PlayList from "./PlayList.js";
+// import Artist from "./Artist.js";
+// import Song from "./Song.js";
+// import Album from "./Album.js";
 
 function Home() {
-  useEffect(() => {});
+  const [topSongs, setTopSongs] = useState([]);
 
+  // useEffect(() => {
+  //   console.log(songsData);
+  //   setTopSongs(songsData.sort((a, b) => b.views - a.views).slice(0, 5));
+  // }, []);
+  // console.log(topSongs);
   return (
     <div>
       <h1>Home</h1>
       <ul>
         <h2>Top 5 songs</h2>
-        <Song />
+        <Items items={songs} title="top songs" type="song" />;
       </ul>
       <ul>
         <h2>Top 5 artists</h2>
-        <Artist />
+        <Items items={artists} title="top artists" type="artist" />;
       </ul>
       <ul>
         <h2>Top 5 albums</h2>
-        <Album />
+        <Items items={albums} title="top albums" type="album" />;
       </ul>
       <ul>
         <h2>Top 5 playlists</h2>
-        <PlayList />
+        <Items items={playlists} title="top playlists" type="playlist" />;
       </ul>
     </div>
   );

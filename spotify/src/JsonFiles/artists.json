@@ -2,34 +2,34 @@
     {
         "id":201,
         "name": "Eminem",
-        "cover_img":"C:/Users/shira/Documents/GitHub/Spotify-app/JsonFiles/images/eminem.jpeg",
-        "albums-list": ["Curtain Call: The Hits", "The Marshall Mathers LP2"],
-        "selected-songs": ["Lose yourself", "Rap God"]
+        "cover_img":"eminem.jpeg",
+        "albumsList": ["Curtain Call: The Hits", "The Marshall Mathers LP2"],
+        "selectedSong": ["Lose yourself", "Rap God"]
     },
     {
         "id":202,
         "name": "Ariana Grange",
-        "cover_img":"C:/Users/shira/Documents/GitHub/Spotify-app/JsonFiles/images/arianagrange.jpeg",
-        "albums-list": ["thank u, next"],
-        "selected-songs": ["Break up with your girlfriend, i'm board"]
+        "cover_img":"arianagrange.jpeg",
+        "albumsList": ["thank u, next"],
+        "selectedSong": ["Break up with your girlfriend, i'm board"]
     },{
         "id":203,
         "name": "Beyonce",
-        "cover_img":"C:/Users/shira/Documents/GitHub/Spotify-app/JsonFiles/images/beyonce.jpeg",
-        "albums-list": ["Lemonade", "Dangerously In Love"],
-        "selected-songs": ["Sorry", "Crazy in love"]
+        "cover_img":"beyonce.jpeg",
+        "albumsList": ["Lemonade", "Dangerously In Love"],
+        "selectedSong": ["Sorry", "Crazy in love"]
     },{
         "id":204,
         "name": "Milky Chance",
-        "cover_img":"C:/Users/shira/Documents/GitHub/Spotify-app/JsonFiles/images/milky chance.jpeg",
-        "albums-list": ["Blossom"],
-        "selected-songs": ["Cocoon"]
+        "cover_img":"milky chance.jpeg",
+        "albumsList": ["Blossom"],
+        "selectedSong": ["Cocoon"]
     },{
         "id":205,
         "name": "Drake",
-        "cover_img":"C:/Users/shira/Documents/GitHub/Spotify-app/JsonFiles/images/drake.jpeg",
-        "albums-list": ["Nothing Was The Same "],
-        "selected-songs": ["Hold on, we`re going home"]
+        "cover_img":"drake.jpeg",
+        "albumsList": ["Nothing Was The Same "],
+        "selectedSong": ["Hold on, we`re going home"]
     }
 
 ]

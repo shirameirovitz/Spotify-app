@@ -4,23 +4,22 @@ import PlayList from "./components/PlayList.js";
 import Artist from "./components/Artist.js";
 import Song from "./components/Song.js";
 import Album from "./components/Album.js";
-import NotFound from "./components/NotFound.js";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <header>
           <h1>Spotify</h1>
         </header>
-
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/song" component={Song} />
-          <Route exact path="/artist" component={Artist} />
-          <Route exact path="/album" component={Album} />
-          <Route exact path="/playlist" component={PlayList} />
-          <Route path="*" component={NotFound} />
+          <Route exact path="/song/:id" component={Song} />
+          <Route exact path="/artist/:id" component={Artist} />
+          <Route exact path="/album/:id" component={Album} />
+          <Route exact path="/playlist/:id" component={PlayList} />
+          <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     </div>
