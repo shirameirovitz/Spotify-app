@@ -4,42 +4,42 @@
         "artistName": "Eminem",
         "albumName": "Curtain Call: The Hits",
         "cover_img": "/images/albums/curtialcall.jpeg",
-        "songs-list": ["Lose yourself"]
+        "songsList": ["Lose yourself"]
     }, {
         "id": 302,
         "artistName": "Eminem",
         "albumName": "The Marshall Mathers LP2",
         "cover_img": "/images/albums/MarshallMathers.jpeg",
-        "songs-list": ["Rap God"]
+        "songsList": ["Rap God"]
     }, {
         "id": 303,
         "artistName": "Ariana Grange",
         "albumName": "thank u, next",
         "cover_img": "/images/albums/thankunext.jpeg",
-        "songs-list": ["Break up with your girlfriend, i'm board"]
+        "songsList": ["Break up with your girlfriend, i'm board"]
     }, {
         "id": 304,
         "artistName": "Beyonce",
         "albumName": "Dangerously In Love",
         "cover_img": "/images/albums/dangerouslyinlove.jpeg",
-        "songs-list": ["Crazy in love"]
+        "songsList": ["Crazy in love"]
     }, {
         "id": 305,
         "artistName": "Beyonce",
         "albumName": "Lemonade",
         "cover_img": "/images/albums/lemonade.jpeg",
-        "songs-list": ["Sorry"]
+        "songsList": ["Sorry"]
     }, {
         "id": 306,
         "artistName": "Milky Chance",
         "albumName": "Blossom",
         "cover_img": "/images/albums/blosom.jpeg",
-        "songs-list": ["Cocoon"]
+        "songsList": ["Cocoon"]
     }, {
         "id": 307,
         "artistName": "Drake",
         "albumName": "Nothing Was The Same",
         "cover_img": "/images/albums/NothingWasTheSame.jpeg",
-        "songs-list": ["Hold on, we`re going home"]
+        "songsList": ["Hold on, we`re going home"]
     }
 ]
