@@ -1,44 +1,109 @@
 import { React, useEffect, useState } from "react";
 
-import albums from "../JsonFiles/albums.json";
-import artists from "../JsonFiles/artists.json";
-import playlists from "../JsonFiles/playlists.json";
-import songs from "../JsonFiles/songs.json";
-import Items from "./Items";
-
-// import PlayList from "./PlayList.js";
-// import Artist from "./Artist.js";
-// import Song from "./Song.js";
-// import Album from "./Album.js";
+import albumsData from "../JsonFiles/albums.json";
+import artistsData from "../JsonFiles/artists.json";
+import playlistsData from "../JsonFiles/playlists.json";
+import songsData from "../JsonFiles/songs.json";
 
 function Home() {
   const [topSongs, setTopSongs] = useState([]);
+  const [topAlbums, setTopAlbums] = useState([]);
+  const [topArtists, setTopArtists] = useState([]);
+  const [topPlayLists, setTopPlayLists] = useState([]);
 
-  // useEffect(() => {
-  //   console.log(songsData);
-  //   setTopSongs(songsData.sort((a, b) => b.views - a.views).slice(0, 5));
-  // }, []);
-  // console.log(topSongs);
+  useEffect(() => {
+    setTopSongs(songsData.sort((a, b) => b.views - a.views).slice(0, 5));
+    setTopAlbums(albumsData.slice(0, 5));
+    setTopArtists(artistsData.slice(0, 5));
+    setTopPlayLists(playlistsData.slice(0, 5));
+  }, []);
+
   return (
     <div>
-      <h1>Home</h1>
+      <h1>home</h1>
+      <h3>Top 5 songs</h3>
       <ul>
-        <h2>Top 5 songs</h2>
-        <Items items={songs} title="top songs" type="song" />;
+        <ShowSongs songs={topSongs} />
       </ul>
+      <h3>Top 5 playlists</h3>
       <ul>
-        <h2>Top 5 artists</h2>
-        <Items items={artists} title="top artists" type="artist" />;
+        <ShowPlayLists playlists={topPlayLists} />
       </ul>
+      <h3>Top 5 albums</h3>
       <ul>
-        <h2>Top 5 albums</h2>
-        <Items items={albums} title="top albums" type="album" />;
+        <ShowAlbums albums={topAlbums} />
       </ul>
+      <h3>Top 5 artists</h3>
       <ul>
-        <h2>Top 5 playlists</h2>
-        <Items items={playlists} title="top playlists" type="playlist" />;
+        <ShowArtists artists={topArtists} />
       </ul>
     </div>
   );
 }
+
+function ShowSongs({ songs }) {
+  // console.log(songs)
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(songs);
+  }, [songs]);
+
+  return items.map((song) => <li key={song.id}>{song.songName} </li>);
+}
+
+function ShowAlbums({ albums }) {
+  // console.log(songs)
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(albums);
+  }, [albums]);
+
+  return items.map((album) => (
+    <div key={album.id}>
+      <li>{album.artistName}</li>
+      <li>{album.albumName}</li>
+      <img
+        style={{ width: "100px" }}
+        src={`..${album.cover_img}`}
+        alt={album.albumName}
+      />
+    </div>
+  ));
+}
+function ShowArtists({ artists }) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(artists);
+  }, [artists]);
+  return items.map((artist) => (
+    <div key={artist.id}>
+      <li>{artist.name}</li>
+      <img
+        style={{ width: "100px" }}
+        src={`..${artist.cover_img}`}
+        alt={artist.name}
+      />
+      <li>{artist.selectedSong}</li>
+    </div>
+  ));
+}
+function ShowPlayLists({ playlists }) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(playlists);
+  }, [playlists]);
+  return items.map((playlist) => (
+    <div key={playlist.id}>
+      <li>{playlist.name}</li>
+      <img
+        style={{ width: "100px" }}
+        src={`..${playlist.cover_img}`}
+        alt={playlist.name}
+      />
+      <li>{playlist.createdAt}</li>
+      <li>{playlist.songsList}</li>
+    </div>
+  ));
+}
+
 export default Home;
