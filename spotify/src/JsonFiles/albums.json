@@ -1,45 +1,45 @@
 [
     {
         "id": 301,
-        "artist-name": "Eminem",
-        "album-name": "Curtain Call: The Hits",
-        "cover_img": "curtialcall.jpeg",
+        "artistName": "Eminem",
+        "albumName": "Curtain Call: The Hits",
+        "cover_img": "/images/albums/curtialcall.jpeg",
         "songs-list": ["Lose yourself"]
     }, {
         "id": 302,
-        "artist-name": "Eminem",
-        "album-name": "The Marshall Mathers LP2",
-        "cover_img": "MarshallMathers.jpeg",
+        "artistName": "Eminem",
+        "albumName": "The Marshall Mathers LP2",
+        "cover_img": "/images/albums/MarshallMathers.jpeg",
         "songs-list": ["Rap God"]
     }, {
         "id": 303,
-        "artist-name": "Ariana Grange",
-        "album-name": "thank u, next",
-        "cover_img": "thankunext.jpeng",
+        "artistName": "Ariana Grange",
+        "albumName": "thank u, next",
+        "cover_img": "/images/albums/thankunext.jpeg",
         "songs-list": ["Break up with your girlfriend, i'm board"]
     }, {
         "id": 304,
-        "artist-name": "Beyonce",
-        "album-name": "Dangerously In Love",
-        "cover_img": "dangerouslyinlove.jpeg",
+        "artistName": "Beyonce",
+        "albumName": "Dangerously In Love",
+        "cover_img": "/images/albums/dangerouslyinlove.jpeg",
         "songs-list": ["Crazy in love"]
     }, {
         "id": 305,
-        "artist-name": "Beyonce",
-        "album-name": "Lemonade",
-        "cover_img": "lemonade.jpeg",
+        "artistName": "Beyonce",
+        "albumName": "Lemonade",
+        "cover_img": "/images/albums/lemonade.jpeg",
         "songs-list": ["Sorry"]
     }, {
         "id": 306,
-        "artist-name": "Milky Chance",
-        "album-name": "Blossom",
-        "cover_img": "blosom.jpeg",
+        "artistName": "Milky Chance",
+        "albumName": "Blossom",
+        "cover_img": "/images/albums/blosom.jpeg",
         "songs-list": ["Cocoon"]
     }, {
         "id": 307,
-        "artist-name": "Drake",
-        "album-name": "Nothing Was The Same",
-        "cover_img": "NothingWasTheSame.jpeg",
+        "artistName": "Drake",
+        "albumName": "Nothing Was The Same",
+        "cover_img": "/images/albums/NothingWasTheSame.jpeg",
         "songs-list": ["Hold on, we`re going home"]
     }
 ]

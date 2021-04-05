@@ -2,112 +2,112 @@
     {
         "id": 101,
         "name": "Training",
-        "cover_img": "training.jpg",
+        "cover_img": "/images/playlists/training.jpg",
         "createdAt": "5-11-2011",
         "songsList": ["Blue"]
     },
     {
         "id": 102,
         "name": "My Shazam Tracks",
-        "cover_img": "shazam.jpg",
+        "cover_img": "/images/playlists/shazam.jpg",
         "createdAt": "9-4-2015",
         "songsList": ["Taro"]
     },
     {
         "id": 103,
         "name": "classics",
-        "cover_img": "classic.jpg",
+        "cover_img": "/images/playlists/classic.jpg",
         "createdAt": "4-12-1997",
         "songsList": ["Daddy Cool"]
     },
     {
         "id": 104,
         "name": "sad mood",
-        "cover_img": "sadmood.jpg",
+        "cover_img": "/images/playlists/sadmood.jpg",
         "createdAt": "3-3-2013",
         "songsList": ["Back To Black"]
     },
     {
         "id": 105,
         "name": "driving",
-        "cover_img": "driving.jpg",
+        "cover_img": "/images/playlists/driving.jpg",
         "createdAt": "30-3-2020",
         "songsList": ["Location"]
     },
     {
         "id": 106,
         "name": "motivation",
-        "cover_img": "motivation.jpg",
+        "cover_img": "/images/playlists/motivation.jpg",
         "createdAt": "1-8-2021",
         "songsList": ["Good Vibrations"]
     },
     {
         "id": 107,
         "name": "Isreali Songs",
-        "cover_img": "israeli.jpeg",
+        "cover_img": "/images/playlists/israeli.jpeg",
         "createdAt": "20-4-2006",
         "songsList": ["Hu Heemin La"]
     },
     {
         "id": 108,
         "name": "Happy mood",
-        "cover_img": "happymood.jpeg",
+        "cover_img": "/images/playlists/happymood.jpeg",
         "createdAt": "5-5-2005",
         "songsList": ["I Trusted You"]
     },
     {
         "id": 109,
         "name": "broken heart",
-        "cover_img": "broken.jpeg",
+        "cover_img": "/images/playlists/broken.jpeg",
         "createdAt": "17-8-1920",
         "songsList": ["Someone Like You"]
     },
     {
         "id": 110,
         "name": "Today`s hits",
-        "cover_img": "todayshits.jpeg",
+        "cover_img": "/images/playlists/todayshits.jpeg",
         "createdAt":"04-04-2021",
         "songsList": ["Fever"]
     }, {
         "id": 111,
         "name": "Party",
-        "cover_img": "party.jpeg",
+        "cover_img": "/images/playlists/party.jpeg",
         "createdAt":"03-01-2021",
         "songsList": ["Crazy in love"]
     }, {
         "id": 112,
         "name": "00's Essentials",
-        "cover_img": "00s.jpeg",
+        "cover_img": "/images/playlists/00s.jpeg",
         "createdAt":"15-12-2020",
         "songsList": ["Let`s get it started"]
     }, {
         "id": 113,
         "name": "Rap Life",
-        "cover_img": "raplife.jpeg",
+        "cover_img": "/images/playlists/raplife.jpeg",
         "createdAt":"",
         "songsList": ["Bitch, don`t kill my vibe", "No Role Modelz"]
     }, {
         "id": 114,
         "name": "British Rock",
-        "cover_img": "britishrock.jpeg",
+        "cover_img": "/images/playlists/britishrock.jpeg",
         "createdAt":"25-02-2021",
         "songsList": ["Mardy bum"]
     }, {
         "id": 115,
         "name": "Chill Rap",
-        "cover_img": "chillrap.jpeg",
+        "cover_img": "/images/playlists/chillrap.jpeg",
         "createdAt":"14-03-2021",
         "songsList": ["Sacrifices"]
     }, {
         "id": 116,
         "name": "Chill Vibes",
-        "cover_img": "cillvibes.jpeg",
+        "cover_img": "/images/playlists/cillvibes.jpeg",
         "createdAt":"03-05-2020",
         "songsList": ["Cocoon", "Dang!"]
     }, {
         "id": 117,
         "name": "Quiet storm",
-        "cover_img": "quietstorm.jpeg",
+        "cover_img": "/images/playlists/quietstorm.jpeg",
         "createdAt":"13-01-2021",
         "songsList": ["Pretty little fears"]
     }
