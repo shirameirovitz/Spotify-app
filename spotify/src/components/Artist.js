@@ -2,6 +2,7 @@ import artistsData from "../JsonFiles/artists.json";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import songsData from "../JsonFiles/songs.json";
+import albumsData from "../JsonFiles/albums.json";
 
 function Artist(props) {
   const [exists, setExists] = useState(true);
@@ -25,7 +26,14 @@ function Artist(props) {
       <ol>
         <h2>Albums</h2>
         {albums.map((album, i) => {
-          return <li key={i}>{album}</li>;
+            const myAlbum = albumsData.find((item) => item.albumName === album);
+            console.log(myAlbum);
+            return (
+              <Link to={`/album/${myAlbum.id}?artist=${exists.id}`}>
+                <li key={i}>{album}</li>
+              </Link>
+            );
+  
         })}
       </ol>
       <ol>
