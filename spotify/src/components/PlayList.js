@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import playlistData from "../JsonFiles/playlists.json";
+import { Link } from "react-router-dom";
+import songsData from "../JsonFiles/songs.json";
 
 function PlayList(props) {
   const [exists, setExists] = useState(true);
@@ -10,22 +12,31 @@ function PlayList(props) {
       (item) => item.id === Number(props.match.params.id)
     );
     setExists(myPlaylist);
+    console.log(myPlaylist);
     setSongList(myPlaylist.songsList);
   }, []);
   return (
     <div>
-      <h1>Playlist</h1>
       <div>{exists.name}</div>
       <div>{exists.created_at}</div>
       {console.log(songsList)}
-      <ul>
-        {" "}
-        songs:
+      <ol>
+        <h2>songs</h2>
         {songsList.map((song, i) => {
-          return <li key={i}>{song}</li>;
+          const mySong = songsData.find((item) => item.songName === song);
+          console.log(mySong);
+          return (
+            <Link to={`/song/${mySong.id}?playlist=${exists.id}`}>
+              <li key={i}>{song}</li>
+            </Link>
+          );
         })}
-      </ul>
-      <img src={`..${exists.cover_img}`} alt={exists.albumName}></img>
+      </ol>
+      <img
+        src={`..${exists.cover_img}`}
+        alt={exists.albumName}
+        style={{ width: "100px" }}
+      ></img>
     </div>
   );
 }

@@ -6,7 +6,6 @@ import songsData from "../JsonFiles/songs.json";
 function Album(props) {
   const [exists, setExists] = useState(true);
   const [songsList, setSongList] = useState([]);
-  const [songId, setSongId] = useState();
 
   useEffect(() => {
     const myAlbum = albumsData.find(
@@ -28,9 +27,6 @@ function Album(props) {
         <h2>songs</h2>
         {songsList.map((song, i) => {
           const mySong = songsData.find((item) => item.songName === song);
-          console.log(mySong);
-          // setSongId(mySong);
-          console.log(songId);
           return (
             <Link to={`/song/${mySong.id}?album=${exists.id}`}>
               <li key={i}>{song}</li>
