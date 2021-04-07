@@ -74,7 +74,7 @@ function ShowAlbums({ albums }) {
   return items.map((album) => (
     <Link
       to={{
-        pathname: `/albom/${album.id}`,
+        pathname: `/album/${album.id}`,
       }}
     >
       <div key={album.id}>
@@ -107,7 +107,7 @@ function ShowArtists({ artists }) {
           src={`..${artist.cover_img}`}
           alt={artist.name}
         />
-        <li>{artist.selectedSong}</li>
+        {/* <li>{artist.selectedSong}</li> */}
       </div>
     </Link>
   ));
@@ -120,7 +120,7 @@ function ShowPlayLists({ playlists }) {
   return items.map((playlist) => (
     <Link
       to={{
-        pathname: `/playlist/${playlist / id}`,
+        pathname: `/playlist/${playlist.id}`,
       }}
     >
       <div key={playlist.id}>
@@ -130,8 +130,8 @@ function ShowPlayLists({ playlists }) {
           src={`..${playlist.cover_img}`}
           alt={playlist.name}
         />
-        <li>{playlist.createdAt}</li>
-        <li>{playlist.songsList}</li>
+        {/* <li>{playlist.createdAt}</li>
+        <li>{playlist.songsList}</li> */}
       </div>
     </Link>
   ));

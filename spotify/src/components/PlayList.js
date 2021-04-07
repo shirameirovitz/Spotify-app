@@ -23,11 +23,11 @@ function PlayList(props) {
   } else {
     return (
       <div>
-        <div>{exists.name}</div>
-        <div>{exists.created_at}</div>
+        <h2>{exists.name}</h2>
+        <div>{exists.createdAt}</div>
         {console.log(songsList)}
         <ol>
-          <h2>songs</h2>
+          <h3>songs</h3>
           {songsList.map((song, i) => {
             const mySong = songsData.find((item) => item.songName === song);
             console.log(mySong);
