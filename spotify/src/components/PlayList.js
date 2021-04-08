@@ -5,7 +5,7 @@ import songsData from "../JsonFiles/songs.json";
 import NotExist from "./NotExist";
 
 function PlayList(props) {
-  const [exists, setExists] = useState(true);
+  const [exists, setExists] = useState(false);
   const [songsList, setSongList] = useState([]);
 
   useEffect(() => {

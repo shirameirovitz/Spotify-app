@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import albumsData from "../JsonFiles/albums.json";
 import { Link } from "react-router-dom";
+import albumsData from "../JsonFiles/albums.json";
 import songsData from "../JsonFiles/songs.json";
 import NotExist from "./NotExist";
 
 function Album(props) {
-  const [exists, setExists] = useState(true);
+  const [exists, setExists] = useState(false);
   const [songsList, setSongList] = useState([]);
 
   useEffect(() => {

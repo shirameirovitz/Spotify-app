@@ -6,8 +6,8 @@ import albumsData from "../JsonFiles/albums.json";
 import NotExist from "./NotExist";
 
 function Artist(props) {
-  const [exists, setExists] = useState(true);
-  const [songSelected, setSongSelected] = useState([]);
+  const [exists, setExists] = useState(false);
+  const [selectedSongs, setSelectedSongs] = useState([]);
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Artist(props) {
     if (myArtist !== undefined) {
       setExists(myArtist);
       console.log(myArtist);
-      setSongSelected(myArtist.selectedSong);
+      setSelectedSongs(myArtist.selectedSong);
       setAlbums(myArtist.albumsList);
     }
   }, []);
@@ -26,14 +26,14 @@ function Artist(props) {
   } else {
     return (
       <div>
-        <h1>Artist</h1>
         <div>{exists.name}</div>
-
         <ol>
           <h2>Albums</h2>
-          {albums.map((album, i) => {
+          {albums.map((album) => {
+            console.log(albums);
             const myAlbum = albumsData.find((item) => item.albumName === album);
             console.log(myAlbum);
+            console.log(selectedSongs);
             return (
               <Link
                 to={{
@@ -47,9 +47,10 @@ function Artist(props) {
           })}
         </ol>
         <ol>
-          <h2>Selected songs</h2>
-          {songSelected.map((song, i) => {
+          <h2>songs</h2>
+          {selectedSongs.map((song) => {
             const mySong = songsData.find((item) => item.songName === song);
+            console.log(mySong);
             return (
               <Link
                 to={{
@@ -64,7 +65,6 @@ function Artist(props) {
         </ol>
 
         <img src={`..${exists.cover_img}`} alt={exists.name}></img>
-        <ul>{songSelected}</ul>
       </div>
     );
   }
