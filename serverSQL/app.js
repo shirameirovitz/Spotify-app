@@ -63,17 +63,15 @@ app.get('/playlists', (req, res) => {
     }
   );
 });
-// app.get('/songs/:id', (req, res) => {
-//   mysqlCon.query('SELECT * FROM songs WHERE id = ? AND Plays > ?', [req.params.id, 100], (err, results, fields) => {
-//       console.log(fields);
-//       if(err){
-//           res.send(err.message);
-//       } else if (results && results.length === 1){
-//           res.send(results[0]);
-//       } else {
-//           res.send(results);
-//       }
-//   });
-// });
+app.get('/songs/:id', (req, res) => {
+  let queryString = "SELECT * FROM songs WHERE id = " + req.params.id;
+  mysqlCon.query(queryString, (err, results, fields) => {
+    if (err) {
+      res.send(err.message);
+    } else if (results && results.length === 1) {
+      res.send(results[0]);
+    }
+  });
+});
 
 app.listen(3001);
