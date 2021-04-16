@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
-import songsData from '../JsonFiles/songs.json';
-import albumsData from '../JsonFiles/albums.json';
-import artistsData from '../JsonFiles/artists.json';
-import playlistsData from '../JsonFiles/playlists.json';
-import NotExist from './NotExist';
+import { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
+import songsData from "../JsonFiles/songs.json";
+import albumsData from "../JsonFiles/albums.json";
+import artistsData from "../JsonFiles/artists.json";
+import playlistsData from "../JsonFiles/playlists.json";
+import NotExist from "./NotExist";
 
 function Song(props) {
   const [exists, setExists] = useState(false);
   const [suggestedSongs, setSuggestedSongs] = useState([]);
-  const [songById, setSongById] = useState();
   const queryParams = useQuery();
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function Song(props) {
     );
     if (mySong !== undefined) {
       setExists(mySong);
-      if (props.location.search !== '') {
+      if (props.location.search !== "") {
         const myAlbum = albumsData.find(
           (item) => item.id === Number(queryParams.album)
         );
@@ -40,18 +39,6 @@ function Song(props) {
       }
     }
   }, []);
-
-  //   useEffect(() => {
-  //     suggestedSongs.map((song, i) => {
-  //       const otherSong = songsData.find(
-  //         (item) => item.songName === song
-  //       );
-  //       console.log(otherSong.id);
-
-  // setSongById(otherSong)
-  //     }
-
-  //   }, [songById])
 
   if (exists === false) {
     return <NotExist />;
@@ -75,24 +62,32 @@ function Song(props) {
         ></iframe>
         <h2>suggestedSongs</h2>
 
-        <Link
-          to={{
-            pathname: `/song/${songById.id}`,
-          }}
-        >
-          <li key={songById.id}>{songById}</li>
-        </Link>
+        {suggestedSongs.map((song, i) => {
+          const otherSong = songsData.find((item) => item.songName === song);
+          console.log(otherSong.id);
+
+          return (
+            /////////////////////////
+            //problem - switch url but not the page himself without refresh
+            //the problem is with the key
+            <Link
+              to={{
+                pathname: `/song/${otherSong.id}`,
+              }}
+            >
+              <li key={otherSong.id}>{song}</li>
+            </Link>
+          );
+        })}
       </div>
     );
   }
 }
-
 function useQuery() {
   const queryParams = new URLSearchParams(useLocation().search);
-  const artist = queryParams.get('artist');
-  const album = queryParams.get('album');
-  const playlist = queryParams.get('playlist');
+  const artist = queryParams.get("artist");
+  const album = queryParams.get("album");
+  const playlist = queryParams.get("playlist");
   return { artist, album, playlist };
 }
-
 export default Song;
