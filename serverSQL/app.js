@@ -110,101 +110,55 @@ app.get('/playlists/:id', (req, res) => {
 //POST NEW SONG
 app.post('/song', (req, res) => {
   let body = req.body;
-  if (
-    body.id &&
-    body.songName &&
-    body.artistName &&
-    body.album &&
-    body.length &&
-    body.views &&
-    body.src &&
-    body.lyrics
-  ) {
-    mysqlCon.query(
-      `INSERT INTO songs VALUES (${body.id}, "${body.songName}", "${body.artistName}", "${body.album}", "${body.length}", ${body.views}, "${body.src}", "${body.lyrics}")`,
-      (err, results, fields) => {
-        if (err) {
-          res.send(err.message);
-        } else {
-          res.send('Add successfully');
-        }
-      }
-    );
-  } else {
-    res.send('You missed a value');
-  }
+  mysqlCon.query('INSERT INTO songs SET ?', body, (err, results, fields) => {
+    console.log(fields);
+    if (err) {
+      res.send(err.message);
+    } else {
+      res.send(results);
+    }
+  });
 });
+
 //POST NEW ARTIST
 app.post('/artist', (req, res) => {
   let body = req.body;
-  if (
-    body.id &&
-    body.name &&
-    body.cover_img &&
-    body.albumsList &&
-    body.selectedSong
-  ) {
-    mysqlCon.query(
-      `INSERT INTO artists VALUES (${body.id}, "${body.name}", "${body.cover_img}", "${body.albumsList}", "${body.selectedSong}")`,
-      (err, results, fields) => {
-        if (err) {
-          res.send(err.message);
-        } else {
-          res.send('Add successfully');
-        }
-      }
-    );
-  } else {
-    res.send('You missed a value');
-  }
+  mysqlCon.query('INSERT INTO artists SET ?', body, (err, results, fields) => {
+    console.log(fields);
+    if (err) {
+      res.send(err.message);
+    } else {
+      res.send(results);
+    }
+  });
 });
 //POST NEW ALBUM
 app.post('/album', (req, res) => {
   let body = req.body;
-  if (
-    body.id &&
-    body.artistName &&
-    body.albumsName &&
-    body.cover_img &&
-    body.songsList
-  ) {
-    mysqlCon.query(
-      `INSERT INTO albums VALUES (${body.id}, "${body.artistName}", "${body.albumsName}", "${body.cover_img}", "${body.songsList}")`,
-      (err, results, fields) => {
-        if (err) {
-          res.send(err.message);
-        } else {
-          res.send('Add successfully');
-        }
-      }
-    );
-  } else {
-    res.send('You missed a value');
-  }
+  mysqlCon.query('INSERT INTO albums SET ?', body, (err, results, fields) => {
+    console.log(fields);
+    if (err) {
+      res.send(err.message);
+    } else {
+      res.send(results);
+    }
+  });
 });
 //POST NEW PLAYLIST
 app.post('/playlist', (req, res) => {
   let body = req.body;
-  if (
-    body.id &&
-    body.name &&
-    body.cover_img &&
-    body.createdAt &&
-    body.songsList
-  ) {
-    mysqlCon.query(
-      `INSERT INTO playlists VALUES (${body.id}, "${body.name}", "${body.cover_img}", "${body.createdAt}", "${body.songsList}")`,
-      (err, results, fields) => {
-        if (err) {
-          res.send(err.message);
-        } else {
-          res.send('Add successfully');
-        }
+  mysqlCon.query(
+    'INSERT INTO playlists SET ?',
+    body,
+    (err, results, fields) => {
+      console.log(fields);
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
       }
-    );
-  } else {
-    res.send('You missed a value');
-  }
+    }
+  );
 });
 //change existing song
 app.put('/song', (req, res) => {
@@ -289,5 +243,18 @@ app.put('/playlist', (req, res) => {
     }
   );
 });
-
+app.delete('/song/:id', (req, res) => {
+  mysqlCon.query(
+    'DELETE FROM songs WHERE id = ?',
+    [req.params.id],
+    (err, results, fields) => {
+      console.log(fields);
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
+      }
+    }
+  );
+});
 app.listen(3001);
