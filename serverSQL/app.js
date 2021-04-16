@@ -243,9 +243,55 @@ app.put('/playlist', (req, res) => {
     }
   );
 });
+//DELETE EXISTING SONG
 app.delete('/song/:id', (req, res) => {
   mysqlCon.query(
     'DELETE FROM songs WHERE id = ?',
+    [req.params.id],
+    (err, results, fields) => {
+      console.log(fields);
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
+      }
+    }
+  );
+});
+//DELETE EXISTING ARTIST
+app.delete('/artist/:id', (req, res) => {
+  mysqlCon.query(
+    'DELETE FROM artists WHERE id = ?',
+    [req.params.id],
+    (err, results, fields) => {
+      console.log(fields);
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
+      }
+    }
+  );
+});
+//DELETE EXISTING ALBUM
+app.delete('/album/:id', (req, res) => {
+  mysqlCon.query(
+    'DELETE FROM albums WHERE id = ?',
+    [req.params.id],
+    (err, results, fields) => {
+      console.log(fields);
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
+      }
+    }
+  );
+});
+//DELETE EXISTING PLAYLIST
+app.delete('/playlist/:id', (req, res) => {
+  mysqlCon.query(
+    'DELETE FROM playlists WHERE id = ?',
     [req.params.id],
     (err, results, fields) => {
       console.log(fields);
