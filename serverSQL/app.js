@@ -103,5 +103,17 @@ app.get('/playlists/:id', (req, res) => {
     }
   });
 });
-
+app.post('/song', (req, res) => {
+  let body = req.body;
+  mysqlCon.query(
+    `INSERT INTO songs VALUES (${body.id}, "${body.songName}", "${body.artistName}", "${body.album}", "${body.length}", ${body.views}, "${body.src}", "${body.lyrics}")`,
+    (err, results, fields) => {
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send(results);
+      }
+    }
+  );
+});
 app.listen(3001);
