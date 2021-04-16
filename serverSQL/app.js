@@ -39,7 +39,30 @@ app.get('/artists', (req, res) => {
     }
   );
 });
-
+//GET 5 TOP ALBUMS
+app.get('/albums', (req, res) => {
+  mysqlCon.query(
+    'SELECT * FROM albums ORDER BY RAND() LIMIT 5',
+    (err, results, fields) => {
+      if (err) {
+        res.send(err.message);
+      }
+      res.send(results);
+    }
+  );
+});
+//GET 5 TOP PLAYLISTS
+app.get('/playlists', (req, res) => {
+  mysqlCon.query(
+    'SELECT * FROM playlists ORDER BY RAND() LIMIT 5',
+    (err, results, fields) => {
+      if (err) {
+        res.send(err.message);
+      }
+      res.send(results);
+    }
+  );
+});
 // app.get('/songs/:id', (req, res) => {
 //   mysqlCon.query('SELECT * FROM songs WHERE id = ? AND Plays > ?', [req.params.id, 100], (err, results, fields) => {
 //       console.log(fields);
