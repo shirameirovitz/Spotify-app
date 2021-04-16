@@ -269,5 +269,25 @@ app.put('/album', (req, res) => {
     }
   );
 });
+//change existing playlist
+app.put('/playlist', (req, res) => {
+  mysqlCon.query(
+    'UPDATE playlists SET name = ?, cover_img = ?,createdAt = ?, songsList = ? WHERE id = ?',
+    [
+      req.body.name,
+      req.body.cover_img,
+      req.body.songsList,
+      req.body.createdAt,
+      req.body.id,
+    ],
+    (err, results, fields) => {
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.send('Updated successfully');
+      }
+    }
+  );
+});
 
 app.listen(3001);
