@@ -27,6 +27,18 @@ app.get('/songs', (req, res) => {
     }
   );
 });
+//GET 5 TOP ARTISTS
+app.get('/artists', (req, res) => {
+  mysqlCon.query(
+    'SELECT * FROM artists ORDER BY RAND() LIMIT 5',
+    (err, results, fields) => {
+      if (err) {
+        res.send(err.message);
+      }
+      res.send(results);
+    }
+  );
+});
 
 // app.get('/songs/:id', (req, res) => {
 //   mysqlCon.query('SELECT * FROM songs WHERE id = ? AND Plays > ?', [req.params.id, 100], (err, results, fields) => {
