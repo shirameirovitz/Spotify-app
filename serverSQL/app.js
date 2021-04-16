@@ -105,15 +105,29 @@ app.get('/playlists/:id', (req, res) => {
 });
 app.post('/song', (req, res) => {
   let body = req.body;
-  mysqlCon.query(
-    `INSERT INTO songs VALUES (${body.id}, "${body.songName}", "${body.artistName}", "${body.album}", "${body.length}", ${body.views}, "${body.src}", "${body.lyrics}")`,
-    (err, results, fields) => {
-      if (err) {
-        res.send(err.message);
-      } else {
-        res.send(results);
+  if (
+    body.id &&
+    body.songName &&
+    body.artistName &&
+    body.album &&
+    body.length &&
+    body.views &&
+    body.src &&
+    body.lyrics
+  ) {
+    mysqlCon.query(
+      `INSERT INTO song VALUES (${body.id}, "${body.songName}", "${body.artistName}", "${body.album}", "${body.length}", ${body.views}, "${body.src}", "${body.lyrics}")`,
+      (err, results, fields) => {
+        if (err) {
+          res.send(err.message);
+        } else {
+          res.send('Add successfully');
+        }
       }
-    }
-  );
+    );
+  } else {
+    res.send('You missed a value');
+  }
 });
+
 app.listen(3001);
