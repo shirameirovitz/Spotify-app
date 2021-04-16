@@ -15,7 +15,7 @@ mysqlCon.connect((err) => {
   if (err) throw err;
   console.log('connected!');
 });
-
+//GET 5 TOP SONGS
 app.get('/songs', (req, res) => {
   mysqlCon.query(
     'SELECT * FROM songs ORDER BY views DESC LIMIT 5',
