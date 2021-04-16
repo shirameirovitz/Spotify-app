@@ -64,7 +64,37 @@ app.get('/playlists', (req, res) => {
   );
 });
 app.get('/songs/:id', (req, res) => {
-  let queryString = "SELECT * FROM songs WHERE id = " + req.params.id;
+  let queryString = 'SELECT * FROM songs WHERE id = ' + req.params.id;
+  mysqlCon.query(queryString, (err, results, fields) => {
+    if (err) {
+      res.send(err.message);
+    } else if (results && results.length === 1) {
+      res.send(results[0]);
+    }
+  });
+});
+app.get('/artists/:id', (req, res) => {
+  let queryString = 'SELECT * FROM artists WHERE id = ' + req.params.id;
+  mysqlCon.query(queryString, (err, results, fields) => {
+    if (err) {
+      res.send(err.message);
+    } else if (results && results.length === 1) {
+      res.send(results[0]);
+    }
+  });
+});
+app.get('/albums/:id', (req, res) => {
+  let queryString = 'SELECT * FROM albums WHERE id = ' + req.params.id;
+  mysqlCon.query(queryString, (err, results, fields) => {
+    if (err) {
+      res.send(err.message);
+    } else if (results && results.length === 1) {
+      res.send(results[0]);
+    }
+  });
+});
+app.get('/playlists/:id', (req, res) => {
+  let queryString = 'SELECT * FROM playlists WHERE id = ' + req.params.id;
   mysqlCon.query(queryString, (err, results, fields) => {
     if (err) {
       res.send(err.message);
