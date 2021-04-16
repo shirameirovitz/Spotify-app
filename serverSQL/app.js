@@ -153,5 +153,28 @@ app.post('/artist', (req, res) => {
     res.send('You missed a value');
   }
 });
+app.post('/album', (req, res) => {
+  let body = req.body;
+  if (
+    body.id &&
+    body.artistName &&
+    body.albumsName &&
+    body.cover_img &&
+    body.songsList
+  ) {
+    mysqlCon.query(
+      `INSERT INTO albums VALUES (${body.id}, "${body.name}", "${body.albumsName}", "${body.cover_img}", "${body.songsList}")`,
+      (err, results, fields) => {
+        if (err) {
+          res.send(err.message);
+        } else {
+          res.send('Add successfully');
+        }
+      }
+    );
+  } else {
+    res.send('You missed a value');
+  }
+});
 
 app.listen(3001);
