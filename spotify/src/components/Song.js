@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
-import { useLocation, Link } from "react-router-dom";
-import songsData from "../JsonFiles/songs.json";
-import albumsData from "../JsonFiles/albums.json";
-import artistsData from "../JsonFiles/artists.json";
-import playlistsData from "../JsonFiles/playlists.json";
-import NotExist from "./NotExist";
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import songsData from '../JsonFiles/songs.json';
+// import albumsData from '../JsonFiles/albums.json';
+// import artistsData from '../JsonFiles/artists.json';
+// import playlistsData from '../JsonFiles/playlists.json';
+import NotExist from './NotExist';
+import GetById from './GetById';
 
 function Song(props) {
   const [exists, setExists] = useState(false);
@@ -12,21 +13,28 @@ function Song(props) {
   const queryParams = useQuery();
 
   useEffect(() => {
-    const mySong = songsData.find(
-      (item) => item.id === Number(props.match.params.id)
-    );
+    const mySong = <GetById id={props.match.params.id} type="songs" />;
+    // const mySong = songsData.find(
+    //   (item) => item.id === Number(props.match.params.id)
+    // );
     if (mySong !== undefined) {
       setExists(mySong);
-      if (props.location.search !== "") {
-        const myAlbum = albumsData.find(
-          (item) => item.id === Number(queryParams.album)
+      if (props.location.search !== '') {
+        const myAlbum = <GetById id={props.match.params.id} type="albums" />;
+        // const myAlbum = albumsData.find(
+        //   (item) => item.id === Number(queryParams.album)
+        // );
+        const myPlaylist = (
+          <GetById id={props.match.params.id} type="playlists" />
         );
-        const myPlaylist = playlistsData.find(
-          (item) => item.id === Number(queryParams.playlist)
-        );
-        const myArtist = artistsData.find(
-          (item) => item.id === Number(queryParams.artist)
-        );
+        // const myPlaylist = playlistsData.find(
+        //   (item) => item.id === Number(queryParams.playlist)
+        // );
+
+        const myArtist = <GetById id={props.match.params.id} type="artists" />;
+        // const myArtist = artistsData.find(
+        //   (item) => item.id === Number(queryParams.artist)
+        // );
 
         //match suggested songs by album/artist/playlist
         if (queryParams.album) {
@@ -85,9 +93,9 @@ function Song(props) {
 }
 function useQuery() {
   const queryParams = new URLSearchParams(useLocation().search);
-  const artist = queryParams.get("artist");
-  const album = queryParams.get("album");
-  const playlist = queryParams.get("playlist");
+  const artist = queryParams.get('artist');
+  const album = queryParams.get('album');
+  const playlist = queryParams.get('playlist');
   return { artist, album, playlist };
 }
 export default Song;

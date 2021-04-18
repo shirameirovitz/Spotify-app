@@ -23,9 +23,9 @@ app.get('/songs', (req, res) => {
     'SELECT * FROM songs ORDER BY views DESC LIMIT 5',
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       }
-      res.err(results);
+      res.send(results);
     }
   );
 });
@@ -35,9 +35,9 @@ app.get('/artists', (req, res) => {
     'SELECT * FROM artists ORDER BY RAND() LIMIT 5',
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       }
-      res.err(results);
+      res.send(results);
     }
   );
 });
@@ -47,9 +47,9 @@ app.get('/albums', (req, res) => {
     'SELECT * FROM albums ORDER BY RAND() LIMIT 5',
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       }
-      res.err(results);
+      res.send(results);
     }
   );
 });
@@ -59,9 +59,9 @@ app.get('/playlists', (req, res) => {
     'SELECT * FROM playlists ORDER BY RAND() LIMIT 5',
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       }
-      res.err(results);
+      res.send(results);
     }
   );
 });
@@ -132,9 +132,9 @@ app.post('/song', (req, res) => {
   mysqlCon.query('INSERT INTO songs SET ?', body, (err, results, fields) => {
     console.log(fields);
     if (err) {
-      res.err(err.message);
+      res.send(err.message);
     } else {
-      res.err(results);
+      res.send(results);
     }
   });
 });
@@ -145,9 +145,9 @@ app.post('/artist', (req, res) => {
   mysqlCon.query('INSERT INTO artists SET ?', body, (err, results, fields) => {
     console.log(fields);
     if (err) {
-      res.err(err.message);
+      res.send(err.message);
     } else {
-      res.err(results);
+      res.send(results);
     }
   });
 });
@@ -157,9 +157,9 @@ app.post('/album', (req, res) => {
   mysqlCon.query('INSERT INTO albums SET ?', body, (err, results, fields) => {
     console.log(fields);
     if (err) {
-      res.err(err.message);
+      res.send(err.message);
     } else {
-      res.err(results);
+      res.send(results);
     }
   });
 });
@@ -172,9 +172,9 @@ app.post('/playlist', (req, res) => {
     (err, results, fields) => {
       console.log(fields);
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err(results);
+        res.send(results);
       }
     }
   );
@@ -195,9 +195,9 @@ app.put('/song', (req, res) => {
     ],
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err('Updated successfully');
+        res.send('Updated successfully');
       }
     }
   );
@@ -215,9 +215,9 @@ app.put('/song', (req, res) => {
     ],
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err('Updated successfully');
+        res.send('Updated successfully');
       }
     }
   );
@@ -235,9 +235,9 @@ app.put('/album', (req, res) => {
     ],
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err('Updated successfully');
+        res.send('Updated successfully');
       }
     }
   );
@@ -255,9 +255,9 @@ app.put('/playlist', (req, res) => {
     ],
     (err, results, fields) => {
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err('Updated successfully');
+        res.send('Updated successfully');
       }
     }
   );
@@ -270,9 +270,9 @@ app.delete('/song/:id', (req, res) => {
     (err, results, fields) => {
       console.log(fields);
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err(results);
+        res.send(results);
       }
     }
   );
@@ -285,9 +285,9 @@ app.delete('/artist/:id', (req, res) => {
     (err, results, fields) => {
       console.log(fields);
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err(results);
+        res.send(results);
       }
     }
   );
@@ -300,9 +300,9 @@ app.delete('/album/:id', (req, res) => {
     (err, results, fields) => {
       console.log(fields);
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err(results);
+        res.send(results);
       }
     }
   );
@@ -315,9 +315,9 @@ app.delete('/playlist/:id', (req, res) => {
     (err, results, fields) => {
       console.log(fields);
       if (err) {
-        res.err(err.message);
+        res.send(err.message);
       } else {
-        res.err(results);
+        res.send(results);
       }
     }
   );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import albumsData from "../JsonFiles/albums.json";
 import songsData from "../JsonFiles/songs.json";
+import GetById from "./GetById";
 import NotExist from "./NotExist";
 
 function Album(props) {
@@ -9,9 +10,10 @@ function Album(props) {
   const [songsList, setSongList] = useState([]);
 
   useEffect(() => {
-    const myAlbum = albumsData.find(
-      (item) => item.id === Number(props.match.params.id)
-    );
+    // const myAlbum = albumsData.find(
+    //   (item) => item.id === Number(props.match.params.id)
+    // );
+    const myAlbum= <GetById id= {props.match.params.id} type= "albums"/>
     if (myAlbum !== undefined) {
       setExists(myAlbum);
       setSongList(myAlbum.songsList);

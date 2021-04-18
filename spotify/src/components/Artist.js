@@ -1,9 +1,10 @@
-import artistsData from "../JsonFiles/artists.json";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import songsData from "../JsonFiles/songs.json";
-import albumsData from "../JsonFiles/albums.json";
-import NotExist from "./NotExist";
+import artistsData from '../JsonFiles/artists.json';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import songsData from '../JsonFiles/songs.json';
+import albumsData from '../JsonFiles/albums.json';
+import NotExist from './NotExist';
+import GetById from './GetById';
 
 function Artist(props) {
   const [exists, setExists] = useState(false);
@@ -11,9 +12,10 @@ function Artist(props) {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    const myArtist = artistsData.find(
-      (item) => item.id === Number(props.match.params.id)
-    );
+    const myArtist = <GetById id={props.match.params.id} type="artists" />;
+    // const myArtist = artistsData.find(
+    //   (item) => item.id === Number(props.match.params.id)
+    // );
     if (myArtist !== undefined) {
       setExists(myArtist);
       console.log(myArtist);
