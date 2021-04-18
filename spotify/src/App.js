@@ -7,6 +7,7 @@ import Album from "./components/Album.js";
 import NotFound from "./components/NotFound";
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>

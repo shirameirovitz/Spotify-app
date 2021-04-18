@@ -1,9 +1,6 @@
-import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import albumsData from "../JsonFiles/albums.json";
-import artistsData from "../JsonFiles/artists.json";
-import playlistsData from "../JsonFiles/playlists.json";
-import songsData from "../JsonFiles/songs.json";
+import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+const axios = require('axios');
 
 function Home() {
   const [topSongs, setTopSongs] = useState([]);
@@ -12,16 +9,42 @@ function Home() {
   const [topPlayLists, setTopPlayLists] = useState([]);
 
   useEffect(() => {
-    setTopSongs(songsData.sort((a, b) => b.views - a.views).slice(0, 5));
-
-    let shuffled = playlistsData.sort(() => 0.5 - Math.random());
-    setTopPlayLists(shuffled.slice(0, 5));
-
-    shuffled = albumsData.sort(() => 0.5 - Math.random());
-    setTopAlbums(shuffled.slice(0, 5));
-
-    shuffled = artistsData.sort(() => 0.5 - Math.random());
-    setTopArtists(shuffled.slice(0, 5));
+    axios
+      .get(`http://localhost:3001/songs`)
+      .then((response) => {
+        console.log(response);
+        setTopSongs(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:3001/artists`)
+      .then((response) => {
+        console.log(response);
+        setTopArtists(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:3001/playlists`)
+      .then((response) => {
+        console.log(response);
+        setTopPlayLists(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:3001/albums`)
+      .then((response) => {
+        console.log(response);
+        setTopAlbums(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -81,7 +104,7 @@ function ShowAlbums({ albums }) {
         <li>{album.artistName}</li>
         <li>{album.albumName}</li>
         <img
-          style={{ width: "100px" }}
+          style={{ width: '100px' }}
           src={`..${album.cover_img}`}
           alt={album.albumName}
         />
@@ -103,7 +126,7 @@ function ShowArtists({ artists }) {
       <div key={artist.id}>
         <li>{artist.name}</li>
         <img
-          style={{ width: "100px" }}
+          style={{ width: '100px' }}
           src={`..${artist.cover_img}`}
           alt={artist.name}
         />
@@ -126,7 +149,7 @@ function ShowPlayLists({ playlists }) {
       <div key={playlist.id}>
         <li>{playlist.name}</li>
         <img
-          style={{ width: "100px" }}
+          style={{ width: '100px' }}
           src={`..${playlist.cover_img}`}
           alt={playlist.name}
         />
